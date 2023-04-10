@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main>
+    <header class="container-header">
+      <img src="./images/studio-ghibli-logo.png" alt="logo-totoro">
+    </header>
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-history">History</li>
+        <li class="nav-movies">Movies</li>
+        <li class="nav-characteres">Characteres</li>
+      </ul>
+    </nav>
+
+    <dialog class="mo">
+      <div class="modal" id="modal">
+        <p class="close-modal" id="open-modal">X</p>
+        <div class="main-modal">
+          <p class="modal-title">HISTORY</p>
+          <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eos velit cupiditate
+            facilis exercitationem quia esse porro, sed dolorum. Consequuntur, labore sequi debitis numquam fugiat
+            temporibus qui porro facilis quo?</p>
+        </div>
+      </div>
+    </dialog>
+
+  </main>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
