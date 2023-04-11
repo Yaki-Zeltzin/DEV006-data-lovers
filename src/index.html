@@ -8,7 +8,8 @@
 </head>
 
 <body>
-  <main>
+  <div class="root"></div>
+  <main class="container-main">
     <header class="container-header">
       <img src="./images/studio-ghibli-logo.png" alt="logo-totoro">
     </header>
@@ -16,23 +17,71 @@
       <ul>
         <li class="nav-history">History</li>
         <li class="nav-movies">Movies</li>
-        <li class="nav-characteres">Characteres</li>
+        <li class="nav-characteres">Characters</li>
       </ul>
     </nav>
 
-    <dialog class="mo">
-      <div class="modal" id="modal">
-        <p class="close-modal" id="open-modal">X</p>
+    <dialog class="modal" id="modal">
+      <div class="dal">
+        <p class="close-modal" id="close-modal">X</p>
         <div class="main-modal">
           <p class="modal-title">HISTORY</p>
           <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eos velit cupiditate
             facilis exercitationem quia esse porro, sed dolorum. Consequuntur, labore sequi debitis numquam fugiat
             temporibus qui porro facilis quo?</p>
+        </div>>
+      </div>
+    </dialog>
+  </main>
+
+  <section class="pageMovie">
+    <header class="movie-header">
+      <img src="./images/studio-ghibli-logo.png" alt="logo-totoro">
+      <h2>MOVIES</h2>
+    </header>
+    <div class="container-select">
+      <select class="sort" name="select-sort">
+        <option value="value1" selected>Sort by</option>
+        <option value="value2">Value 2</option>
+        <option value="value3">Value 3</option>
+      </select>
+      <select class="filter" name="select-filter">Filter by</option>
+        <option value="value21" selected>Filter by</option>
+      </select>
+    </div>
+
+    <section class="cards">
+      <div class="card">
+        <img class="img-modal" src="./images/My_Neighbor_Totoro.webp" alt="photo-card">
+        <div class="info-card">
+          <p class="info-title">Mi vecino totoro</p>
+          <p class="year">1988</p>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="modal-movie">
+      <div class="main-modal">
+        <img src="./images/My_Neighbor_Totoro.webp" alt="">
+        <div class="desciption">
+          <h3 class="close-movie">X</h3>
+          <h4>Mi vefcino TOTORO</h4>
+          <p>1988</p>
+          <p>Hayao Miyazaki</p>
+          <p class="sinopsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat quod sed sequi omnis
+            eveniet sit harum perspiciatis officiis accusamus blanditiis commodi modi amet voluptates illo facere neque,
+            culpa corporis nisi?</p>
+          <p>Score:93</p>
+          <p>Percentage:</p>
+          <p>Percentage of</p>
+          <p>Other character</p>
         </div>
       </div>
     </dialog>
 
-  </main>
+  </section>
+
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
   <script src="main.js" type="module"></script>
 </body>
 

@@ -59,9 +59,9 @@ li:hover::after{
 #modal{
   margin: auto auto;
   max-width: 50%;
-  text-align: justify;
+  height: 45%;
   padding: 1.5em;
-  background-color: rgb(210, 175, 125, 83%);
+  background-color: rgb(210, 175, 125, 95%);
   border: none;
   border-radius: 40px;
   color: white;
@@ -83,7 +83,126 @@ li:hover::after{
   letter-spacing: 3px;
   font-size: 1.4em;
   padding-bottom: 10px;
+}
+
+/* Page movies */
+
+.pageMovie{
+  display: block;
+  padding-bottom: 65%;
+  background-image: url(./images/fondoM.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.movie-header{
+  width: 65%;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
 }
+.movie-header img{
+  width: 30%;
+}
+
+.movie-header h2{
+  color: white;
+  font-size: 35px;
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+
+.container-select{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  position: relative;
+}
+
+.container-select select{
+  padding: .8em ;
+  border-radius: 10px;
+  font-size: 1.2em;
+  outline:0;
+  border:0;
+  background: #f3f4f4;
+  color:#080808;
+  cursor:pointer;
+}
+
+/* CARDS */
+.cards{
+  margin: 2.5em;
+  min-width: 240px;
+}
+
+.card{
+  width: 220px;
+  padding: 10px;
+  background: rgba(231, 226, 219, 0.411);
+  border-radius: 40px;
+}
+
+.card img{
+  border-radius: 40px;
+}
+
+.info-card{
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: white;
+  padding: 0 10px;
+}
+.info-title{
+  letter-spacing: 1.5px;
+  line-height: 35px;
+}
+.year{
+  letter-spacing: 3px;
+}
+
+/* modal-movie */
+.modal-movie{
+  margin: auto auto;
+  border-radius: 40px;
+  border: none;
+  width: 850px;
+  height: 350px;
+}
+
+.main-modal{
+  display: flex;
+}
+
+
+.modal-movie img{
+  border-radius: 40px 0 0 40px;
+}
+
+.modal-movie .close-movie{
+  text-align: right;
+  padding: 20px 0 0;
+  cursor: pointer;
+}
+
+.modal-movie .desciption{
+  width: 100%;
+  padding: 0px 50px;
+  line-height: 30px;
+  font-size: 1.2em;
+}
+
+.modal-movie .sinopsis{
+  line-height: 18px;
+  padding: 10px 0;
+  font-size: 17px;
+}
+.modal-movie::backdrop{
+  background-color: rgba(6, 6, 6, 0.725);
+}
+
 
 
