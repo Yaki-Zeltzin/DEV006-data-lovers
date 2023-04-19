@@ -97,18 +97,16 @@ li:hover::after{
 }
 
 /* Page movies */
-
 .container-page{
   background-image: url(./images/fondoM.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.pageMovie{
+.pageMovie::backdrop{
   display: block;
   background-color: #0808084e;
-  padding-bottom: 260px;
-  padding-bottom: 65%;
+  padding-bottom: 150px;
 }
 
 .movie-header{
@@ -149,28 +147,52 @@ li:hover::after{
 }
 
 /* CARDS */
-.cards{
-  margin: 2.5em;
+.cards,
+.characters{
+  margin: 2.5em 2.5em;
   min-width: 240px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.card{
-  width: 220px;
-  padding: 10px;
-  background: rgba(231, 226, 219, 0.645);
+.card,
+.card_char{
+  text-align: center;
+  background: rgba(231, 226, 219, 0.49);
   border-radius: 40px;
+  width: 280px;
+  margin: 1.2em;
 }
 
-.card img{
+.card_char{
+  text-align: center;
+  background: rgba(231, 226, 219, 0.679);
+}
+
+.card img,
+.img-character{
   border-radius: 40px;
+  width: 92%;
+  height: 340px;
+  margin-top: 10px
+}
+.img-character{
+  width: 90%;
+  height: 290px;
 }
 
+.characters .info-card{
+  font-weight: 500;
+  text-align: justify;
+  padding: 0 40px 20px;
+}
 .info-card{
+  padding: 10px 0;
   text-align: center;
   font-size: 1.4em;
   font-weight: 500;
   color: rgb(66, 45, 45);
-  padding: 0 10px;
 }
 .info-title{
   letter-spacing: 1.5px;
@@ -186,23 +208,28 @@ li:hover::after{
   border-radius: 40px;
   border: none;
   width: 850px;
-  height: 400px;
-  background:#eeeae9;
+  height: 360px;
+  background:rgb(253, 253, 253);
+  position: absolute;
+  top: 180px;
+  left: 50px;
+  display: none;
 }
 
 .main-modal{
   display: flex;
+  width: 850px;
+  height: 360px;
 }
-
 
 .modal-movie img{
   width: 100%;
   height: 100%;
   border-radius: 40px 0 0 40px;
-  padding-top: 15px;
 }
 
-.modal-movie .close-movie{
+.modal-movie .close-movie
+{
   text-align: right;
   padding: 20px 0 0;
   cursor: pointer;
@@ -211,27 +238,25 @@ li:hover::after{
 .modal-movie .desciption{
   padding: 0 30px;
   line-height: 30px;
-  font-size: 1.2em;
-  background-color: #eeeae9;
+  font-size: 1em;
 }
 
 .modal-movie .sinopsis{
-  line-height: 18px;
+  line-height: 20px;
   padding: 10px 0;
-  font-size: 17px;
+  font-size: 1em;
 }
 .modal-movie::backdrop{
-  background-color: rgba(6, 6, 6, 0.725);
+ background: #080808a3;
 }
 
 /* Page Characters */
 .container-page-three{
-  background-image: url(./images/descarga\ \(1\).jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url(./images/chihiro043.jpg);
+  background-size: no-repeat;
+  padding-top:-30px;
+  margin-top: 0;
 }
 
-.pageCharacters{
-  background-color: #08080850;
-  padding-bottom: 260px;
-}
+
+
