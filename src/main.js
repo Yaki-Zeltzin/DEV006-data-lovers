@@ -2,6 +2,31 @@ import data from './data/ghibli/ghibli.js';
 
 const dataFilms = data.films;
 const dataCharacters = dataFilms.map(l => l.people)
+console.log(dataFilms)
+//Filter of moviees
+const directors = dataFilms.map(direct => direct.director)
+
+function eliminaDuplicados (arr) {
+  return arr.filter((valor, indice) => {
+    return arr.indexOf(valor) === indice
+    //console.log(arr.indexOf(valor) === indice)
+    //console.log(valor, indice)
+  })
+}
+
+const optionsDirects = eliminaDuplicados(directors)
+
+function paintOptions(arr){
+  const selectM = document.querySelector('.filterM');
+  arr.map(a=>{
+    const eOption = document.createElement('option');
+    console.log(eOption.textContent=a)
+    selectM.appendChild(eOption);
+  })
+}
+
+paintOptions(optionsDirects)
+
 
 //Modal history
 const nav_history = document.querySelector('.nav-history');
@@ -28,6 +53,34 @@ link_movies.addEventListener('click', (e) => {
 
   showMovies(dataFilms)
 })
+
+
+//Ordenar películas Z - A
+export function dataFilmsReverse(arr) {
+  const arrResult = arr.sort((a, b) => {
+    if (a.title > b.title) {
+      return -1;
+    }
+    return 0;
+  });
+  return arrResult;
+}
+
+
+// Ordenar
+const order = document.querySelector("#sort");
+order.addEventListener("change", () => {
+  const indexSelect = order.selectedIndex;
+  if (indexSelect === 1) {
+    const dataOrdered = dataFilmsSort(dataFilms);
+    showMovies(dataOrdered);
+  } else if (indexSelect === 2) {
+    const dataReverse = dataFilmsReverse(dataFilms);
+    showMovies(dataReverse);
+  }
+
+})
+
 
 //Page Characters
 const character = document.querySelector('.pageCharacters');
@@ -159,31 +212,7 @@ export function dataFilmsSort(arr) {
   return arrResult;
 }
 
-//Ordenar películas Z - A
-export function dataFilmsReverse(arr) {
-  const arrResult = arr.sort((a, b) => {
-    if (a.title > b.title) {
-      return -1;
-    }
-    return 0;
-  });
-  return arrResult;
-}
 
-
-// Ordenar
-const order = document.querySelector("#sort");
-order.addEventListener("change", () => {
-  const indexSelect = order.selectedIndex;
-  if (indexSelect === 1) {
-    const dataOrdered = dataFilmsSort(dataFilms);
-    showMovies(dataOrdered);
-  } else if (indexSelect === 2) {
-    const dataReverse = dataFilmsReverse(dataFilms);
-    showMovies(dataReverse);
-  }
-
-})
 
 
 //Add to options characters
