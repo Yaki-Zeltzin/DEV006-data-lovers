@@ -3,30 +3,182 @@ import data from './data/ghibli/ghibli.js';
 const dataFilms = data.films;
 const dataCharacters = dataFilms.map(l => l.people)
 console.log(dataFilms)
-//Filter of moviees
 const directors = dataFilms.map(direct => direct.director)
+const Character = dataFilms.map(direct => direct.title)
 
-function eliminaDuplicados (arr) {
+//Remove duplicate directors
+function removeDuplicates(arr) {
   return arr.filter((valor, indice) => {
     return arr.indexOf(valor) === indice
     //console.log(arr.indexOf(valor) === indice)
     //console.log(valor, indice)
   })
 }
+const optionsDirects = removeDuplicates(directors)
+const optionsCharacter = removeDuplicates(Character)
 
-const optionsDirects = eliminaDuplicados(directors)
-
-function paintOptions(arr){
+//Paint Options Directors
+function paintOptions(arr) {
   const selectM = document.querySelector('.filterM');
-  arr.map(a=>{
+  arr.map(a => {
     const eOption = document.createElement('option');
-    console.log(eOption.textContent=a)
+    eOption.textContent = a
     selectM.appendChild(eOption);
   })
 }
-
 paintOptions(optionsDirects)
 
+//Paint Options Movies
+function PaintOptions(arr) {
+  const selectC = document.querySelector('#filterCharact');
+  arr.map(a => {
+    const eOption = document.createElement('option');
+    eOption.textContent = a
+    selectC.appendChild(eOption)
+  })
+}
+PaintOptions(optionsCharacter)
+
+const select = document.querySelector('.filterM');
+select.addEventListener('change', (e) => {
+  if (e.target.value === "Hayao Miyazaki") {
+    filter(dataFilms, "Hayao Miyazaki")
+  } else if (e.target.value === "Isao Takahata") {
+    filter(dataFilms, "Isao Takahata")
+  } else if (e.target.value === "Yoshifumi Kondō") {
+    filter(dataFilms, "Yoshifumi Kondō")
+  } else if (e.target.value === "Hiroyuki Morita") {
+    filter(dataFilms, "Hiroyuki Morita")
+  } else if (e.target.value === "Gorō Miyazaki") {
+    filter(dataFilms, "Gorō Miyazaki")
+  } else if (e.target.value === "Hiromasa Yonebayashi") {
+    filter(dataFilms, "Hiromasa Yonebayashi")
+  }
+})
+
+//filter
+function filter(data, condition) {
+  const cardsMovies = document.querySelector('.cards');
+  cardsMovies.innerHTML = '';
+  data.filter(movie => {
+    if (movie.director === condition) {
+      const m = movie
+      console.log(m)
+      //showMovies(m)
+
+
+
+      //*********Preguntar en OH**************************************************
+      const card = document.createElement('div')
+      card.classList.add("card")
+      card.innerHTML =
+        `
+    <img id="${m.title}" class="img-modal" src="${m.poster}" alt="${movie.title}">
+     <div class="info-card">
+         <p class="info-title">${m.title}</p>
+         <p class="year">${m.release_date}</p>
+         <p class="year">${m.director}</p>
+     </div>
+    `
+      cardsMovies.appendChild(card);
+      const element = document.getElementById(movie.title)
+      //console.log(element)
+      element.addEventListener('click', function (e) {
+        console.log(element)
+        openModal(e, movie)
+      })
+
+    }
+  })
+}
+
+
+console.log(Character)
+
+
+const selectC = document.querySelector('#filterCharact');
+selectC.addEventListener('change', (e) => {
+  if (e.target.value === "Castle in the Sky") {
+    filterf(dataFilms, "Castle in the Sky")
+  } else if (e.target.value === "My Neighbor Totoro") {
+    filterf(dataFilms, "My Neighbor Totoro")
+  } else if (e.target.value === "Kiki's Delivery Service") {
+    filterf(dataFilms, "Kiki's Delivery Service")
+  } else if (e.target.value === "Grave of the Fireflies") {
+    filterf(dataFilms, "Grave of the Fireflies")
+  } else if (e.target.value === "Only Yesterday") {
+    filterf(dataFilms, "Only Yesterday")
+  } else if (e.target.value === "Porco Rosso") {
+    filterf(dataFilms, "Porco Rosso")
+  } else if (e.target.value === "Pom Poko") {
+    filterf(dataFilms, "Pom Poko")
+  } else if (e.target.value === "Whisper of the Heart") {
+    filterf(dataFilms, "Whisper of the Heart")
+  } else if (e.target.value === "Princess Mononoke") {
+    filterf(dataFilms, "Princess Mononoke")
+  } else if (e.target.value === "My Neighbors the Yamadas") {
+    filterf(dataFilms, "My Neighbors the Yamadas")
+  } else if (e.target.value === "Spirited Away") {
+    filterf(dataFilms, "Spirited Away")
+  } else if (e.target.value === "The Cat Returns") {
+    filterf(dataFilms, "The Cat Returns")
+  } else if (e.target.value === "Howl's Moving Castle") {
+    filterf(dataFilms, "Howl's Moving Castle")
+  } else if (e.target.value === "Tales from Earthsea") {
+    filterf(dataFilms, "Tales from Earthsea")
+  } else if (e.target.value === "Ponyo on the Cliff by the Sea") {
+    filterf(dataFilms, "Ponyo on the Cliff by the Sea")
+  } else if (e.target.value === "The Secret World of Arrietty") {
+    filterf(dataFilms, "The Secret World of Arrietty")
+  } else if (e.target.value === "From Up on Poppy Hill") {
+    filterf(dataFilms, "From Up on Poppy Hill")
+  } else if (e.target.value === "The Wind Rises") {
+    filterf(dataFilms, "The Wind Rises")
+  } else if (e.target.value === "The Tale of the Princess Kaguya") {
+    filterf(dataFilms, "The Tale of the Princess Kaguya")
+  } else if (e.target.value === "When Marnie Was There") {
+    filterf(dataFilms, "When Marnie Was There")
+  }
+})
+
+//filter
+function filterf(data, condition) {
+  const cardsMovies = document.querySelector('.characters');
+  cardsMovies.innerHTML = '';
+
+  data.filter(movie => {
+    if (movie.title === condition) {
+      const m = movie.people
+      console.log(m)
+      m.map(character => {
+
+
+
+        const card = document.createElement('div')
+        card.classList.add("card_char")
+        card.innerHTML =
+          `
+      <img class="img-character" id="${character.name}" src=${character.img} alt=${character.name}>
+      <div class="info-card">
+        <p class="info-title">Name: ${character.name}</p>
+        <p class="year">Age: ${character.age}</p>
+        <p class="direct">Director: ${character.direct}</p>
+        <p class="specie">Specie: ${character.specie}</p>
+        <p class="gender">Gender: ${character.gender}</p>
+      </div>
+       `
+        cardsMovies.appendChild(card);
+      })
+    }
+  })
+
+}
+
+// m.map(p=>{
+//   const pe = p
+//   console.log(pe)
+//   showCharacters(pe)
+// })
 
 //Modal history
 const nav_history = document.querySelector('.nav-history');
@@ -70,12 +222,15 @@ export function dataFilmsReverse(arr) {
 // Ordenar
 const order = document.querySelector("#sort");
 order.addEventListener("change", () => {
+  document.querySelector('.cards').innerHTML = '';
   const indexSelect = order.selectedIndex;
   if (indexSelect === 1) {
     const dataOrdered = dataFilmsSort(dataFilms);
+    console.log(dataOrdered)
     showMovies(dataOrdered);
   } else if (indexSelect === 2) {
     const dataReverse = dataFilmsReverse(dataFilms);
+    console.log(dataReverse)
     showMovies(dataReverse);
   }
 
@@ -100,7 +255,7 @@ character.style.display = 'none'
 //Show cards of movies
 function showMovies(data) {
   const cardsMovies = document.querySelector('.cards');
-  data.map((movie) => {
+  data.forEach((movie) => {
     const card = document.createElement('div')
     card.classList.add("card")
     card.innerHTML =
@@ -109,6 +264,7 @@ function showMovies(data) {
      <div class="info-card">
          <p class="info-title">${movie.title}</p>
          <p class="year">${movie.release_date}</p>
+         <p class="year">${movie.director}</p>
      </div>
     `
     cardsMovies.appendChild(card);
@@ -215,24 +371,3 @@ export function dataFilmsSort(arr) {
 
 
 
-//Add to options characters
-// const optionsDirectors = document.getElementById('filterCharact');
-// dataFilms.forEach(direct => {
-//   const options = document.createElement('option')
-//   options.value = direct.director;
-//   console.log(direct.director)
-// });
-
-
-// createOptions(dataFilms)
-
-
-// const arrDirectors = [];
-// dataFilms.forEach((element) => {
-//   arrDirectors.push(element.director);
-// });
-// const uniqueDirectors = arrDirectors.filter((value, index) => {
-//   console.log(arrDirectors.indexOf(value) === index)
-//   console.log(value, index)
-
-// });
