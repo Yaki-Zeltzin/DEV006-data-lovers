@@ -1,17 +1,19 @@
 import data from './data/ghibli/ghibli.js';
+import {
+  dataFilmsSort,
+  dataFilmsReverse,
+  filter as filterByDirector
+} from './data.js'
 
 const dataFilms = data.films;
 const dataCharacters = dataFilms.map(l => l.people)
-console.log(dataFilms)
 const directors = dataFilms.map(direct => direct.director)
 const Character = dataFilms.map(direct => direct.title)
 
 //Remove duplicate directors
 function removeDuplicates(arr) {
   return arr.filter((valor, indice) => {
-    return arr.indexOf(valor) === indice
-    //console.log(arr.indexOf(valor) === indice)
-    //console.log(valor, indice)
+    return arr.indexOf(valor) === indice;
   })
 }
 const optionsDirects = removeDuplicates(directors)
@@ -58,86 +60,73 @@ select.addEventListener('change', (e) => {
 
 //filter
 function filter(data, condition) {
+  const filteredMovies = filterByDirector(data, condition);
   const cardsMovies = document.querySelector('.cards');
   cardsMovies.innerHTML = '';
-  data.filter(movie => {
-    if (movie.director === condition) {
-      const m = movie
-      console.log(m)
-      //showMovies(m)
-
-
-
-      //*********Preguntar en OH**************************************************
-      const card = document.createElement('div')
-      card.classList.add("card")
-      card.innerHTML =
-        `
-    <img id="${m.title}" class="img-modal" src="${m.poster}" alt="${movie.title}">
-     <div class="info-card">
-         <p class="info-title">${m.title}</p>
-         <p class="year">${m.release_date}</p>
-         <p class="year">${m.director}</p>
-     </div>
-    `
-      cardsMovies.appendChild(card);
-      const element = document.getElementById(movie.title)
-      //console.log(element)
-      element.addEventListener('click', function (e) {
-        console.log(element)
-        openModal(e, movie)
-      })
-
-    }
+  filteredMovies.forEach(movie => {
+    const m = movie;
+    const card = document.createElement('div');
+    card.classList.add("card");
+    card.innerHTML =
+      `
+       <img id="${m.title}" class="img-modal" src="${m.poster}" alt="${movie.title}">
+       <div class="info-card">
+           <p class="info-title">${m.title}</p>
+           <p class="year">${m.release_date}</p>
+           <p class="year">${m.director}</p>
+       </div>
+       `
+    cardsMovies.appendChild(card);
+    const element = document.getElementById(movie.title);
+    element.addEventListener('click', function (e) {
+      openModal(e, movie);
+    })
   })
 }
 
-
-console.log(Character)
-
-
+//Filter Character
 const selectC = document.querySelector('#filterCharact');
 selectC.addEventListener('change', (e) => {
   if (e.target.value === "Castle in the Sky") {
-    filterf(dataFilms, "Castle in the Sky")
+    filterf(dataFilms, "Castle in the Sky");
   } else if (e.target.value === "My Neighbor Totoro") {
-    filterf(dataFilms, "My Neighbor Totoro")
+    filterf(dataFilms, "My Neighbor Totoro");
   } else if (e.target.value === "Kiki's Delivery Service") {
-    filterf(dataFilms, "Kiki's Delivery Service")
+    filterf(dataFilms, "Kiki's Delivery Service");
   } else if (e.target.value === "Grave of the Fireflies") {
-    filterf(dataFilms, "Grave of the Fireflies")
+    filterf(dataFilms, "Grave of the Fireflies");
   } else if (e.target.value === "Only Yesterday") {
-    filterf(dataFilms, "Only Yesterday")
+    filterf(dataFilms, "Only Yesterday");
   } else if (e.target.value === "Porco Rosso") {
-    filterf(dataFilms, "Porco Rosso")
+    filterf(dataFilms, "Porco Rosso");
   } else if (e.target.value === "Pom Poko") {
-    filterf(dataFilms, "Pom Poko")
+    filterf(dataFilms, "Pom Poko");
   } else if (e.target.value === "Whisper of the Heart") {
-    filterf(dataFilms, "Whisper of the Heart")
+    filterf(dataFilms, "Whisper of the Heart");
   } else if (e.target.value === "Princess Mononoke") {
-    filterf(dataFilms, "Princess Mononoke")
+    filterf(dataFilms, "Princess Mononoke");
   } else if (e.target.value === "My Neighbors the Yamadas") {
-    filterf(dataFilms, "My Neighbors the Yamadas")
+    filterf(dataFilms, "My Neighbors the Yamadas");
   } else if (e.target.value === "Spirited Away") {
-    filterf(dataFilms, "Spirited Away")
+    filterf(dataFilms, "Spirited Away");
   } else if (e.target.value === "The Cat Returns") {
-    filterf(dataFilms, "The Cat Returns")
+    filterf(dataFilms, "The Cat Returns");
   } else if (e.target.value === "Howl's Moving Castle") {
-    filterf(dataFilms, "Howl's Moving Castle")
+    filterf(dataFilms, "Howl's Moving Castle");
   } else if (e.target.value === "Tales from Earthsea") {
-    filterf(dataFilms, "Tales from Earthsea")
+    filterf(dataFilms, "Tales from Earthsea");
   } else if (e.target.value === "Ponyo on the Cliff by the Sea") {
-    filterf(dataFilms, "Ponyo on the Cliff by the Sea")
+    filterf(dataFilms, "Ponyo on the Cliff by the Sea");
   } else if (e.target.value === "The Secret World of Arrietty") {
-    filterf(dataFilms, "The Secret World of Arrietty")
+    filterf(dataFilms, "The Secret World of Arrietty");
   } else if (e.target.value === "From Up on Poppy Hill") {
-    filterf(dataFilms, "From Up on Poppy Hill")
+    filterf(dataFilms, "From Up on Poppy Hill");
   } else if (e.target.value === "The Wind Rises") {
-    filterf(dataFilms, "The Wind Rises")
+    filterf(dataFilms, "The Wind Rises");
   } else if (e.target.value === "The Tale of the Princess Kaguya") {
-    filterf(dataFilms, "The Tale of the Princess Kaguya")
+    filterf(dataFilms, "The Tale of the Princess Kaguya");
   } else if (e.target.value === "When Marnie Was There") {
-    filterf(dataFilms, "When Marnie Was There")
+    filterf(dataFilms, "When Marnie Was There");
   }
 })
 
@@ -145,17 +134,12 @@ selectC.addEventListener('change', (e) => {
 function filterf(data, condition) {
   const cardsMovies = document.querySelector('.characters');
   cardsMovies.innerHTML = '';
-
   data.filter(movie => {
     if (movie.title === condition) {
       const m = movie.people
-      console.log(m)
       m.map(character => {
-
-
-
-        const card = document.createElement('div')
-        card.classList.add("card_char")
+        const card = document.createElement('div');
+        card.classList.add("card_char");
         card.innerHTML =
           `
       <img class="img-character" id="${character.name}" src=${character.img} alt=${character.name}>
@@ -173,12 +157,6 @@ function filterf(data, condition) {
   })
 
 }
-
-// m.map(p=>{
-//   const pe = p
-//   console.log(pe)
-//   showCharacters(pe)
-// })
 
 //Modal history
 const nav_history = document.querySelector('.nav-history');
@@ -206,19 +184,6 @@ link_movies.addEventListener('click', (e) => {
   showMovies(dataFilms)
 })
 
-
-//Ordenar películas Z - A
-export function dataFilmsReverse(arr) {
-  const arrResult = arr.sort((a, b) => {
-    if (a.title > b.title) {
-      return -1;
-    }
-    return 0;
-  });
-  return arrResult;
-}
-
-
 // Ordenar
 const order = document.querySelector("#sort");
 order.addEventListener("change", () => {
@@ -226,16 +191,12 @@ order.addEventListener("change", () => {
   const indexSelect = order.selectedIndex;
   if (indexSelect === 1) {
     const dataOrdered = dataFilmsSort(dataFilms);
-    console.log(dataOrdered)
     showMovies(dataOrdered);
   } else if (indexSelect === 2) {
     const dataReverse = dataFilmsReverse(dataFilms);
-    console.log(dataReverse)
     showMovies(dataReverse);
   }
-
 })
-
 
 //Page Characters
 const character = document.querySelector('.pageCharacters');
@@ -247,10 +208,8 @@ link_character.addEventListener('click', (e) => {
   character.style.display = 'block'
   showCharacters(dataCharacters)
 })
-
 movie.style.display = 'none'
 character.style.display = 'none'
-
 
 //Show cards of movies
 function showMovies(data) {
@@ -268,22 +227,18 @@ function showMovies(data) {
      </div>
     `
     cardsMovies.appendChild(card);
-    const element = document.getElementById(movie.title)
-    //console.log(element)
+    const element = document.getElementById(movie.title);
     element.addEventListener('click', function (e) {
-      console.log(element)
       openModal(e, movie)
     })
   })
 }
-
 
 //Modal-movies
 const modal_card = document.querySelector('.modal-movie')
 const close_modal_card = document.querySelector('.close-movie')
 function openModal(e, movie) {
   e.preventDefault()
-
   const img = modal_card.querySelector('img');
   const title = modal_card.querySelector('.title');
   const year = modal_card.querySelector('.year');
@@ -298,14 +253,11 @@ function openModal(e, movie) {
   sinopsis.textContent = movie.description;
   score.textContent = 'Score: ' + movie.rt_score;
   modal_card.style.display = 'block';
-
 }
-
 
 close_modal_card.addEventListener('click', () => {
   modal_card.style.display = 'none'
 })
-
 
 //Show cards of characters
 function showCharacters(data) {
@@ -335,7 +287,6 @@ function showCharacters(data) {
   }
 }
 
-
 // Return Button Movies
 const backButton = document.querySelector(".return");
 backButton.addEventListener("click", (e) => {
@@ -356,17 +307,6 @@ backButton2.addEventListener("click", (e) => {
 
 
 
-
-//Ordenar películas A - Z
-export function dataFilmsSort(arr) {
-  const arrResult = arr.sort((a, b) => {
-    if (a.title < b.title) {
-      return -1;
-    }
-    return 0;
-  });
-  return arrResult;
-}
 
 
 
