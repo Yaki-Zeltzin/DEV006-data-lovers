@@ -1,5 +1,6 @@
 # DATA LOVERS
 [Link al Proyecto](https://yaki-zeltzin.github.io/DEV006-data-lovers/src/index.html)
+
 We are an online guide to Ghibli's world. In our site you can learn about Studio Ghibli's movies, characters, directors, among others.
 
 The site is based on user's requirements that need to be fulfilled in order to achieve their expectations.
