@@ -80,5 +80,15 @@ There are three pages: main, movies and characters.
 The colors and fonts are based on Ghibli's images and colors. We tried to keep it simple and intuitive.
 
 ## USER FEEDBACK
+16 answers in total
+Congratulations: 9
+Comments: 7
+-It would be good to be able to filter the movies by other criteria such as: newest to oldest.
+-I would have liked it if there was a footer because there's a brown line with no infomration. Congratulations!
+-The cards would look better centered in the search.
+-Congratulations for your proyect. I would recommend that you centered the cards. And the background is pixeled in some pages it might be better to change it for another picture. The container of the cards should have rounded borders because the movie images has rounded borders.
+- I would add a pointer to the options in the main page and in the movie posters. Also an icon that shows how to return to the main page because that wasn't very intuitive. Excelent project!
+- I would have liked it if there was a back button on the guide. Because when i tried to do it from one of the categories my navigator would close.
+- The ID cards are not centered, at least in my screen. Sometimes the text would come outside of it. In general I loved the site.
 
-
+![imagenSitio](./src/imagesReadme/BAJA%20FIDELIDAD/ALTA%20FIDELIDAD%202/image%20(1).png)
