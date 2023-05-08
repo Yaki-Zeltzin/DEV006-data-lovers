@@ -97,9 +97,11 @@ li:hover::after{
 
 /* Page movies */
 .container-page{
-  background-image: url(./images/fondoM.jpg);
-  background-size: cover;
+  background-image: url(./images/kazetachinu044\ \(1\).jpg);
+  background-size: auto;
   background-repeat: no-repeat;
+  background-color: #0474BA
+  ;
 }
 
 .pageMovie::backdrop{
@@ -152,6 +154,7 @@ li:hover::after{
   margin: 2.5em 2.5em;
   min-width: 240px;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
 }
